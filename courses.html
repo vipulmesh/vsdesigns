@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Courses | VS Design SolidWorks Training</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Fusion 360, AutoCAD, SolidWorks, and GD&T courses. ISO Certified CAD training.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ─── Header ─── -->
+<header>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="vsdesgn.jpg" alt="VS Design Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="logo-mark" style="display:none">VS</div>
+      <div>
+        <span class="logo-text">VS DESIGN</span>
+        <span class="logo-sub">SolidWorks Training</span>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html" class="active">Courses</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="nav-cta">Enroll Now</a></li>
+      </ul>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <span class="icon-moon">🌙</span>
+      <span class="icon-sun">☀️</span>
+    </button>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ─── Page Header ─── -->
+<section class="page-header">
+  <div class="container page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Courses</span>
+    </div>
+    <h1>Our Courses</h1>
+  </div>
+</section>
+
+<!-- ─── Course Selector ─── -->
+<section class="courses-section">
+  <div class="container">
+
+    <div class="section-header fade-up">
+      <span class="section-label">Curriculum</span>
+      <h2 class="section-title">Select Your Course</h2>
+      <p class="section-desc">
+        All programs are designed in collaboration with mechanical design industry leaders, ensuring every skill you learn is immediately applicable.
+      </p>
+    </div>
+
+    <!-- Tab Buttons -->
+    <div class="course-tabs" role="tablist">
+      <button class="course-tab active" data-course="fusion" role="tab">
+        <span class="tab-icon">🔷</span>
+        <span class="tab-name">Fusion 360</span>
+        <span class="tab-tag">CAD / CAM / CAE</span>
+      </button>
+      <button class="course-tab" data-course="autocad" role="tab">
+        <span class="tab-icon">📐</span>
+        <span class="tab-name">AutoCAD</span>
+        <span class="tab-tag">2D / 3D Drafting</span>
+      </button>
+      <button class="course-tab" data-course="solidworks" role="tab">
+        <span class="tab-icon">⚙️</span>
+        <span class="tab-name">SolidWorks</span>
+        <span class="tab-tag">Mechanical Design</span>
+      </button>
+      <button class="course-tab" data-course="gdt" role="tab">
+        <span class="tab-icon">📏</span>
+        <span class="tab-name">GD&amp;T</span>
+        <span class="tab-tag">Standards</span>
+      </button>
+    </div>
+
+    <!-- Course Panels -->
+    <div class="course-panels">
+
+      <!-- Fusion 360 -->
+      <div class="course-panel active" id="panel-fusion" role="tabpanel">
+        <div class="course-panel-layout">
+          <div class="course-panel-main">
+            <div class="course-panel-badge level-beginner">CAD / CAM / CAE</div>
+            <h2 class="course-panel-title">Fusion 360</h2>
+            <p class="course-panel-desc">Fusion 360 is an all-in-one CAD/CAM/CAE tool that combines 3D modeling with cloud collaboration. Perfect for product design, prototyping, and simulation.</p>
+            <div class="course-panel-topics">
+              <h4>Key Topics</h4>
+              <ul>
+                <li><span class="topic-bullet"></span>Parametric &amp; Freeform Modeling</li>
+                <li><span class="topic-bullet"></span>Simulation &amp; Rendering</li>
+                <li><span class="topic-bullet"></span>CAM for CNC Machining</li>
+                <li><span class="topic-bullet"></span>Collaboration Tools</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;">Enroll in This Course →</a>
+          </div>
+          <div class="course-panel-side">
+            <div class="course-meta-card">
+              <div class="course-meta-item">
+                <span class="meta-icon">🕐</span>
+                <div><span class="meta-label">Duration</span><span class="meta-val">Enquire for Details</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎖️</span>
+                <div><span class="meta-label">Certification</span><span class="meta-val">ISO 9001:2015 Certificate</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">💻</span>
+                <div><span class="meta-label">Mode</span><span class="meta-val">Online &amp; Offline</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎁</span>
+                <div><span class="meta-label">Software</span><span class="meta-val">Provided Free</span></div>
+              </div>
+              <div class="course-meta-divider"></div>
+              <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book Free Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- AutoCAD -->
+      <div class="course-panel" id="panel-autocad" role="tabpanel">
+        <div class="course-panel-layout">
+          <div class="course-panel-main">
+            <div class="course-panel-badge level-advanced">2D / 3D Drafting</div>
+            <h2 class="course-panel-title">AutoCAD</h2>
+            <p class="course-panel-desc">AutoCAD is the industry-standard software for 2D drafting and basic 3D modeling. This course covers engineering drawing creation, dimensioning, layout planning, and architectural schematics.</p>
+            <div class="course-panel-topics">
+              <h4>Key Topics</h4>
+              <ul>
+                <li><span class="topic-bullet"></span>2D Drafting &amp; Annotation</li>
+                <li><span class="topic-bullet"></span>Layers, Blocks &amp; Dimensions</li>
+                <li><span class="topic-bullet"></span>Isometric &amp; Orthographic Views</li>
+                <li><span class="topic-bullet"></span>Introduction to 3D Modeling</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;">Enroll in This Course →</a>
+          </div>
+          <div class="course-panel-side">
+            <div class="course-meta-card">
+              <div class="course-meta-item">
+                <span class="meta-icon">🕐</span>
+                <div><span class="meta-label">Duration</span><span class="meta-val">Enquire for Details</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎖️</span>
+                <div><span class="meta-label">Certification</span><span class="meta-val">ISO 9001:2015 Certificate</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">💻</span>
+                <div><span class="meta-label">Mode</span><span class="meta-val">Online &amp; Offline</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎁</span>
+                <div><span class="meta-label">Software</span><span class="meta-val">Provided Free</span></div>
+              </div>
+              <div class="course-meta-divider"></div>
+              <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book Free Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SolidWorks -->
+      <div class="course-panel" id="panel-solidworks" role="tabpanel">
+        <div class="course-panel-layout">
+          <div class="course-panel-main">
+            <div class="course-panel-badge level-pro">Mechanical Design</div>
+            <h2 class="course-panel-title">SolidWorks</h2>
+            <p class="course-panel-desc">SolidWorks is a powerful parametric 3D CAD software used in mechanical design and product development. This course focuses on part modeling, assembly, simulations, and drawing sheets.</p>
+            <div class="course-panel-topics">
+              <h4>Key Topics</h4>
+              <ul>
+                <li><span class="topic-bullet"></span>3D Part Modeling</li>
+                <li><span class="topic-bullet"></span>Assembly &amp; Mates</li>
+                <li><span class="topic-bullet"></span>Motion Study &amp; Animation</li>
+                <li><span class="topic-bullet"></span>Engineering Drawing Generation</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;">Enroll in This Course →</a>
+          </div>
+          <div class="course-panel-side">
+            <div class="course-meta-card">
+              <div class="course-meta-item">
+                <span class="meta-icon">🕐</span>
+                <div><span class="meta-label">Duration</span><span class="meta-val">Enquire for Details</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎖️</span>
+                <div><span class="meta-label">Certification</span><span class="meta-val">ISO 9001:2015 Certificate</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">💻</span>
+                <div><span class="meta-label">Mode</span><span class="meta-val">Online &amp; Offline</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎁</span>
+                <div><span class="meta-label">Software</span><span class="meta-val">Provided Free</span></div>
+              </div>
+              <div class="course-meta-divider"></div>
+              <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book Free Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- GD&T -->
+      <div class="course-panel" id="panel-gdt" role="tabpanel">
+        <div class="course-panel-layout">
+          <div class="course-panel-main">
+            <div class="course-panel-badge" style="background:rgba(167,139,250,0.1);color:#A78BFA;">Standards</div>
+            <h2 class="course-panel-title">GD&amp;T</h2>
+            <p class="course-panel-desc">Geometric Dimensioning and Tolerancing (GD&T) is a symbolic language used on engineering drawings to define the allowable variation in part geometry. It ensures design intent, manufacturability, and functional assembly across industries.</p>
+            <div class="course-panel-topics">
+              <h4>Key Topics</h4>
+              <ul>
+                <li><span class="topic-bullet"></span>Fundamentals of GD&amp;T Symbols</li>
+                <li><span class="topic-bullet"></span>Datums &amp; Feature Control Frames</li>
+                <li><span class="topic-bullet"></span>Form, Orientation, and Location Tolerances</li>
+                <li><span class="topic-bullet"></span>Practical Applications in Engineering Drawings</li>
+              </ul>
+            </div>
+            <a href="contact.html" class="btn btn-primary" style="margin-top:32px;">Enroll in This Course →</a>
+          </div>
+          <div class="course-panel-side">
+            <div class="course-meta-card">
+              <div class="course-meta-item">
+                <span class="meta-icon">🕐</span>
+                <div><span class="meta-label">Duration</span><span class="meta-val">Enquire for Details</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎖️</span>
+                <div><span class="meta-label">Certification</span><span class="meta-val">ISO 9001:2015 Certificate</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">💻</span>
+                <div><span class="meta-label">Mode</span><span class="meta-val">Online &amp; Offline</span></div>
+              </div>
+              <div class="course-meta-item">
+                <span class="meta-icon">🎁</span>
+                <div><span class="meta-label">Software</span><span class="meta-val">Provided Free</span></div>
+              </div>
+              <div class="course-meta-divider"></div>
+              <a href="contact.html" class="btn btn-outline" style="width:100%;justify-content:center;">Book Free Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── What You'll Learn ─── -->
+<section class="learn-section">
+  <div class="container">
+    <div class="learn-header fade-up">
+      <span class="section-label">Training Scope</span>
+      <h2 class="section-title">What You'll Learn</h2>
+    </div>
+
+    <div class="learn-grid">
+
+      <!-- Comprehensive Training -->
+      <div class="learn-card fade-up" data-delay="0">
+        <div class="learn-card-header">
+          <div class="learn-card-icon">🎓</div>
+          <h3>Comprehensive Training In</h3>
+        </div>
+        <div class="learn-skills-grid">
+          <div class="learn-skill"><span>2D Design</span></div>
+          <div class="learn-skill"><span>3D Design</span></div>
+          <div class="learn-skill"><span>Sheet Metal Design</span></div>
+          <div class="learn-skill"><span>Surfacing Design</span></div>
+          <div class="learn-skill"><span>Weldments Design</span></div>
+          <div class="learn-skill"><span>Simulation &amp; Flow Simulation</span></div>
+          <div class="learn-skill"><span>Assembly</span></div>
+          <div class="learn-skill"><span>2D Drafting</span></div>
+        </div>
+      </div>
+
+      <!-- Industrial Projects Benefits -->
+      <div class="learn-card fade-up" data-delay="150">
+        <div class="learn-card-header">
+          <div class="learn-card-icon">🏗️</div>
+          <h3>Hands-On Industrial Projects</h3>
+        </div>
+        <div class="learn-benefits">
+          <div class="learn-benefit-item">
+            <div class="benefit-num">01</div>
+            <div>
+              <strong>Design Practice</strong>
+              <p>Apply skills on real mechanical design briefs used in the industry.</p>
+            </div>
+          </div>
+          <div class="learn-benefit-item">
+            <div class="benefit-num">02</div>
+            <div>
+              <strong>Industrial Level Learning</strong>
+              <p>Work with the same tools, standards, and complexity as top companies.</p>
+            </div>
+          </div>
+          <div class="learn-benefit-item">
+            <div class="benefit-num">03</div>
+            <div>
+              <strong>Industrial Level Experience</strong>
+              <p>Graduate with a portfolio of real projects, not just academic exercises.</p>
+            </div>
+          </div>
+          <div class="learn-benefit-item">
+            <div class="benefit-num">04</div>
+            <div>
+              <strong>Enhanced Career Prospects</strong>
+              <p>Stand out to employers with verified practical skills and ISO certification.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── CTA Strip ─── -->
+<section style="padding: 0 0 90px;">
+  <div class="container">
+    <div class="courses-cta-strip fade-up">
+      <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);border-radius:8px 8px 0 0;"></div>
+      <div>
+        <h3 style="font-family:var(--font-display);font-size:2rem;color:var(--white);letter-spacing:0.04em;">Not sure which course to pick?</h3>
+        <p style="color:var(--text-dim);font-size:15px;margin-top:8px;">Book a free 30-minute consultation with our expert advisors.</p>
+      </div>
+      <a href="contact.html" class="btn btn-primary" style="flex-shrink:0;">Book Free Consultation →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="logo.png" alt="VS Design" class="logo-img" style="width:32px;height:32px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="logo-mark" style="display:none;width:32px;height:32px;font-size:15px;">VS</div>
+          <div><span class="logo-text" style="font-size:18px;">VS DESIGN</span></div>
+        </div>
+        <p>ISO Certified SolidWorks training institute delivering industry-ready mechanical design engineers since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses.html">Fusion 360</a></li>
+          <li><a href="courses.html">AutoCAD</a></li>
+          <li><a href="courses.html">SolidWorks</a></li>
+          <li><a href="courses.html">GD&amp;T</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 VS Design. All rights reserved.</span>
+      <span class="footer-iso">ISO 9001:2015 Certified</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

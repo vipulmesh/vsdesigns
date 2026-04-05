@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | VS Design </title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- ─── EmailJS SDK ─── -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    // ┌──────────────────────────────────────────────────┐
+    // │  STEP 1 — Paste your EmailJS Public Key here     │
+    // │  Get it from: emailjs.com → Account → API Keys   │
+    // └──────────────────────────────────────────────────┘
+    (function(){
+      emailjs.init({ publicKey: "YOUR_PUBLIC_KEY" });
+    })();
+  </script>
+
+  <style>
+    /* ── Inline feedback styles (no extra CSS file needed) ── */
+    #formMessage {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 500;
+      display: none;
+    }
+    #formMessage.success {
+      background: #ecfdf5;
+      color: #065f46;
+      border: 1px solid #6ee7b7;
+      display: block;
+    }
+    #formMessage.error {
+      background: #fef2f2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+      display: block;
+    }
+    .btn-primary:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+    }
+    .spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-top-color: #fff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+<!-- ─── Header ─── -->
+<header>
+  <div class="container nav-inner">
+    <a href="index.html" class="logo">
+      <img src="vsdesgn.jpg" alt="VS Design Logo" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+      <div class="logo-mark" style="display:none">VS</div>
+      <div>
+        <span class="logo-text">VS DESIGN </span>
+        <span class="logo-sub"></span>
+      </div>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="contact.html" class="active nav-cta">Enroll Now</a></li>
+      </ul>
+    </nav>
+    <button class="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ─── Page Header ─── -->
+<section class="page-header">
+  <div class="container page-header-inner">
+    <div class="breadcrumb">
+      <a href="index.html">Home</a>
+      <span class="breadcrumb-sep">/</span>
+      <span class="breadcrumb-current">Contact</span>
+    </div>
+    <h1>Get In Touch</h1>
+  </div>
+</section>
+
+<!-- ─── Contact ─── -->
+<section class="contact-section">
+  <div class="container">
+    <div class="contact-grid">
+
+      <div class="contact-info fade-up">
+        <span class="section-label">Contact Us</span>
+        <h2>Start Your<br> Journey</h2>
+        <p>Ready to take your career to the next level? Fill in the form and our team will get back to you within 24 hours to discuss the right program for you.</p>
+
+        <div class="contact-item">
+          <div class="contact-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Location</div>
+            <div class="contact-item-value">Pimple Gurav, Pune</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div>
+            <div class="contact-item-label">Phone</div>
+            <div class="contact-item-value">+91 9112762994</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value">bvynktesh@gmail.com</div>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <div class="contact-item-label">Hours</div>
+            <div class="contact-item-value">Mon – Sat: 9:00 AM – 7:00 PM</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-wrap fade-up" data-delay="150">
+        <form id="contactForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fname">First Name</label>
+              <input type="text" id="fname" name="fname" placeholder="Rahul" required>
+            </div>
+            <div class="form-group">
+              <label for="lname">Last Name</label>
+              <input type="text" id="lname" name="lname" placeholder="Sharma" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="rahul@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label for="course">Course of Interest</label>
+            <select id="course" name="course">
+              <option value="" disabled selected>Select a course…</option>
+              <option>SolidWorks Basic (1 Month)</option>
+              <option>SolidWorks Advanced (2 Months)</option>
+              <option>Industrial Project Training (3 Months)</option>
+              <option>Just exploring / Free Demo</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your background or any questions you have…"></textarea>
+          </div>
+          <button type="submit" id="submitBtn" class="btn btn-primary" style="width:100%;justify-content:center;font-size:15px;padding:15px;">
+            Send Message →
+          </button>
+          <p id="formMessage" role="alert"></p>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── Footer ─── -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <img src="vsdesgn.jpg" alt="VS Design" class="logo-img" style="width:32px;height:32px;" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="logo-mark" style="display:none;width:32px;height:32px;font-size:15px;">VS</div>
+          <div><span class="logo-text" style="font-size:18px;">VS DESIGN</span></div>
+        </div>
+        <p>ISO Certified institute delivering industry-ready mechanical design engineers since 2014.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="courses.html">Courses</a></li>
+          <li><a href="team.html">Our Team</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Courses</h4>
+        <ul>
+          <li><a href="courses.html">SolidWorks Basic</a></li>
+          <li><a href="courses.html">SolidWorks Advanced</a></li>
+          <li><a href="courses.html">Industrial Project Training</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 VS Design. All rights reserved.</span>
+      <span class="footer-iso">ISO 9001:2015 Certified</span>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  //  EmailJS Configuration
+  //  Fill in the two IDs below after setting up on emailjs.com
+  // ─────────────────────────────────────────────────────────────
+
+  const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // e.g. "service_abc123"
+  const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // e.g. "template_xyz789"
+
+  // ─────────────────────────────────────────────────────────────
+
+  document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const btn = document.getElementById("submitBtn");
+    const msg = document.getElementById("formMessage");
+
+    // Basic validation
+    const fname  = document.getElementById("fname").value.trim();
+    const lname  = document.getElementById("lname").value.trim();
+    const email  = document.getElementById("email").value.trim();
+    const phone  = document.getElementById("phone").value.trim();
+    const course = document.getElementById("course").value;
+    const message = document.getElementById("message").value.trim();
+
+    if (!fname || !lname || !email) {
+      showMessage("error", "⚠️ Please fill in your name and email address.");
+      return;
+    }
+    if (!/^\S+@\S+\.\S+$/.test(email)) {
+      showMessage("error", "⚠️ Please enter a valid email address.");
+      return;
+    }
+
+    // Loading state
+    btn.disabled = true;
+    btn.innerHTML = '<span class="spinner"></span> Sending…';
+    msg.className = "";
+    msg.style.display = "none";
+
+    // Template parameters — these must match the variable names
+    // you use inside your EmailJS email template (e.g. {{from_name}})
+    const templateParams = {
+      from_name   : `${fname} ${lname}`,
+      from_email  : email,
+      phone       : phone || "Not provided",
+      course      : course || "Not selected",
+      message     : message || "No message provided",
+      to_email    : "bvynktesh@gmail.com"   // your receiving email
+    };
+
+    emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+      .then(function() {
+        showMessage("success", "✅ Message sent! We'll get back to you within 24 hours.");
+        document.getElementById("contactForm").reset();
+      })
+      .catch(function(err) {
+        console.error("EmailJS error:", err);
+        showMessage("error", "❌ Something went wrong. Please try again or call us directly.");
+      })
+      .finally(function() {
+        btn.disabled = false;
+        btn.innerHTML = "Send Message →";
+      });
+  });
+
+  function showMessage(type, text) {
+    const msg = document.getElementById("formMessage");
+    msg.className = type;
+    msg.textContent = text;
+  }
+</script>
+
+</body>
+</html>
