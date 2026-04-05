@@ -52,6 +52,7 @@
 <!-- ─── Team ─── -->
 <section class="team-section">
   <div class="container">
+
     <div class="section-header">
       <span class="section-label">Our Faculty</span>
       <h2 class="section-title">Industry Veterans.<br>World-Class Mentors.</h2>
@@ -60,32 +61,34 @@
       </p>
     </div>
 
+    <!-- FIX: .team-grid is now properly closed after all cards -->
     <div class="team-grid">
 
       <div class="team-card fade-up" data-delay="0">
         <div class="team-img-wrap">
-          <img src="vynk11.jpeg" alt="Mr. VYNKTESH  BHALERAO" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img src="vynk11.jpeg" alt="Mr. Vynktesh Bhalerao" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="team-placeholder" style="display:none">VB</div>
         </div>
         <div class="team-info">
           <div class="team-name">Mr. Vynktesh Bhalerao</div>
           <div class="team-role">Founder Of VS Design</div>
-          <div class="team-exp">CTO of Aeroindia Winner ARAI Yuvahan 2025 | Mechanical Designer | CAD/CAM Expert | Specializing in Machine Parts & Simulation |My 3 Startups in Design, Automation & Manufacturing</div>
+          <div class="team-exp">CTO of Aeroindia Winner ARAI Yuvahan 2025 | Mechanical Designer | CAD/CAM Expert | Specializing in Machine Parts &amp; Simulation | 3 Startups in Design, Automation &amp; Manufacturing</div>
         </div>
       </div>
 
+    </div><!-- /team-grid -->
 
-    <!-- Hiring Strip -->
-    <div style="margin-top:70px; padding:50px 40px; background:var(--surface); border:1px solid var(--border); border-radius:8px; text-align:center; position:relative; overflow:hidden;">
+    <!-- FIX: Hiring strip is now a sibling of .team-grid, not a child of it -->
+    <div class="hiring-strip fade-up" style="margin-top:70px; padding:50px 40px; background:var(--surface); border:1px solid var(--border); border-radius:8px; text-align:center; position:relative; overflow:hidden;">
       <div style="position:absolute;top:0;left:0;right:0;height:2px;background:var(--gradient);"></div>
       <span class="section-label">Join Our Team</span>
       <h3 style="font-family:var(--font-display);font-size:2rem;color:var(--white);letter-spacing:0.04em;margin-bottom:12px;">Are You an Industry Expert?</h3>
       <p style="color:var(--text-dim);font-size:15px;max-width:480px;margin:0 auto 28px;">We're always looking for experienced mechanical design professionals to join our faculty. Teach the next generation of engineers.</p>
       <a href="contact.html" class="btn btn-outline">Get in Touch →</a>
-    </div>
+    </div><!-- /hiring-strip -->
 
-  </div>
-</section>
+  </div><!-- /container -->
+</section><!-- /team-section -->
 
 <!-- ─── Footer ─── -->
 <footer>
@@ -116,12 +119,12 @@
           <li><a href="courses.html">Industrial Project Training</a></li>
         </ul>
       </div>
-    </div>
+    </div><!-- /footer-grid -->
     <div class="footer-bottom">
       <span class="footer-copy">© 2026 VS Design. All rights reserved.</span>
       <span class="footer-iso">ISO 9001:2015 Certified</span>
     </div>
-  </div>
+  </div><!-- /container -->
 </footer>
 
 <script src="js/script.js"></script>
