@@ -9,13 +9,54 @@
 
   <style>
     /* ══════════════════════════════════════════════
+       GALLERY — CSS custom properties
+       These override whatever your main style.css
+       sets, so the section always matches the theme.
+    ══════════════════════════════════════════════ */
+
+    /* ── DARK MODE defaults ── */
+    :root {
+      --gallery-bg:            #0a0f1e;
+      --gallery-card-bg:       rgba(255,255,255,0.03);
+      --gallery-card-bg-slot:  rgba(255,255,255,0.04);
+      --gallery-border:        rgba(255,255,255,0.08);
+      --gallery-border-subtle: rgba(255,255,255,0.06);
+      --gallery-border-cap:    rgba(255,255,255,0.05);
+      --gallery-text:          #f1f5f9;
+      --gallery-text-dim:      #94a3b8;
+      --gallery-icon-bg:       linear-gradient(135deg, #1e3a5f, #2563eb);
+      --gallery-placeholder-bg:linear-gradient(135deg, rgba(30,58,95,0.5) 0%, rgba(37,99,235,0.08) 100%);
+      --gallery-hint-color:    rgba(148,163,184,0.5);
+    }
+
+    /* ── LIGHT MODE overrides ──
+       Targets both a [data-theme="light"] attribute on <html>/<body>
+       and the .light class — covers whichever approach your script.js uses */
+    [data-theme="light"],
+    body.light,
+    html.light {
+      --gallery-bg:            #f0f4ff;
+      --gallery-card-bg:       #ffffff;
+      --gallery-card-bg-slot:  #f8faff;
+      --gallery-border:        rgba(37,99,235,0.15);
+      --gallery-border-subtle: rgba(37,99,235,0.10);
+      --gallery-border-cap:    rgba(37,99,235,0.08);
+      --gallery-text:          #0f172a;
+      --gallery-text-dim:      #475569;
+      --gallery-icon-bg:       linear-gradient(135deg, #3b82f6, #2563eb);
+      --gallery-placeholder-bg:linear-gradient(135deg, rgba(219,234,254,0.8) 0%, rgba(37,99,235,0.06) 100%);
+      --gallery-hint-color:    rgba(71,85,105,0.6);
+    }
+
+    /* ══════════════════════════════════════════════
        GALLERY SECTION — Batches & Workshops
     ══════════════════════════════════════════════ */
     .gallery-section {
       padding: 90px 0 100px;
-      background: var(--bg, #0a0f1e);
+      background: var(--gallery-bg);
       position: relative;
       overflow: hidden;
+      transition: background 0.3s ease;
     }
 
     /* Subtle grid texture backdrop */
@@ -57,11 +98,12 @@
 
     /* ─── Each column panel ─── */
     .gallery-panel {
-      background: var(--card-bg, rgba(255,255,255,0.03));
-      border: 1px solid var(--border, rgba(255,255,255,0.08));
+      background: var(--gallery-card-bg);
+      border: 1px solid var(--gallery-border);
       border-radius: 16px;
       overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+      transition: transform 0.35s ease, box-shadow 0.35s ease,
+                  border-color 0.35s ease, background 0.3s ease;
       position: relative;
     }
 
@@ -90,14 +132,14 @@
       align-items: center;
       gap: 12px;
       padding: 18px 20px 14px;
-      border-bottom: 1px solid var(--border, rgba(255,255,255,0.06));
+      border-bottom: 1px solid var(--gallery-border-subtle);
     }
 
     .gallery-panel-icon {
       width: 36px;
       height: 36px;
       border-radius: 8px;
-      background: linear-gradient(135deg, #1e3a5f, #2563eb);
+      background: var(--gallery-icon-bg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -110,15 +152,17 @@
     .gallery-panel-title {
       font-size: 13px;
       font-weight: 700;
-      color: var(--text, #f1f5f9);
+      color: var(--gallery-text);
       letter-spacing: 0.04em;
       text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
     .gallery-panel-sub {
       font-size: 11px;
-      color: var(--text-dim, #94a3b8);
+      color: var(--gallery-text-dim);
       margin-top: 2px;
+      transition: color 0.3s ease;
     }
 
     .gallery-panel-count {
@@ -139,8 +183,9 @@
       overflow: hidden;
       position: relative;
       aspect-ratio: 4/3;
-      background: var(--card-bg, rgba(255,255,255,0.04));
+      background: var(--gallery-card-bg-slot);
       border: 1.5px dashed rgba(37,99,235,0.25);
+      transition: background 0.3s ease;
     }
 
     .gallery-single-slot img {
@@ -168,8 +213,9 @@
       overflow: hidden;
       position: relative;
       aspect-ratio: 16/7;
-      background: var(--card-bg, rgba(255,255,255,0.04));
+      background: var(--gallery-card-bg-slot);
       border: 1.5px dashed rgba(37,99,235,0.25);
+      transition: background 0.3s ease;
     }
 
     .gallery-double-slot img {
@@ -193,9 +239,8 @@
       align-items: center;
       justify-content: center;
       gap: 10px;
-      background: linear-gradient(135deg,
-        rgba(30,58,95,0.5) 0%,
-        rgba(37,99,235,0.08) 100%);
+      background: var(--gallery-placeholder-bg);
+      transition: background 0.3s ease;
     }
 
     .img-placeholder-icon {
@@ -213,15 +258,16 @@
     .img-placeholder-text {
       font-size: 11px;
       font-weight: 600;
-      color: var(--text-dim, #94a3b8);
+      color: var(--gallery-text-dim);
       text-align: center;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
     .img-placeholder-hint {
       font-size: 10px;
-      color: rgba(148,163,184,0.5);
+      color: var(--gallery-hint-color);
       text-align: center;
     }
 
@@ -229,16 +275,18 @@
     .gallery-panel-caption {
       padding: 12px 20px 18px;
       font-size: 12px;
-      color: var(--text-dim, #94a3b8);
+      color: var(--gallery-text-dim);
       line-height: 1.55;
-      border-top: 1px solid var(--border, rgba(255,255,255,0.05));
+      border-top: 1px solid var(--gallery-border-cap);
+      transition: color 0.3s ease, border-color 0.3s ease;
     }
 
     .gallery-panel-caption strong {
-      color: var(--text, #f1f5f9);
+      color: var(--gallery-text);
       display: block;
       font-size: 12.5px;
       margin-bottom: 3px;
+      transition: color 0.3s ease;
     }
 
     /* ─── Responsive ─── */
