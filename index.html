@@ -91,10 +91,13 @@
     /* ─── Horizontal 3-column track ─── */
     .gallery-track {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
       gap: 24px;
-      align-items: start;
+      align-items: stretch;
     }
+
+    .gallery-panel:nth-child(-n + 3) { grid-column: span 2; }
+    .gallery-panel:nth-child(n + 4) { grid-column: span 3; }
 
     /* ─── Each column panel ─── */
     .gallery-panel {
@@ -208,11 +211,15 @@
       gap: 10px;
     }
 
+    .gallery-panel:nth-child(n + 4) .gallery-double-slots {
+      flex-direction: row;
+    }
+
     .gallery-double-slot {
       border-radius: 10px;
       overflow: hidden;
       position: relative;
-      aspect-ratio: 16/7;
+      aspect-ratio: 16/9;
       background: var(--gallery-card-bg-slot);
       border: 1.5px dashed rgba(37,99,235,0.25);
       transition: background 0.3s ease;
@@ -228,6 +235,40 @@
 
     .gallery-panel:hover .gallery-double-slot img {
       transform: scale(1.04);
+    }
+
+    /* ─── One-photo-at-a-time gallery slideshow ─── */
+    .gallery-slideshow {
+      margin: 18px;
+      position: relative;
+      overflow: hidden;
+      aspect-ratio: 16/9;
+      border-radius: 10px;
+      background: var(--gallery-card-bg-slot);
+      border: 1.5px dashed rgba(37,99,235,0.25);
+    }
+
+    .gallery-slideshow-track {
+      display: flex;
+      height: 100%;
+      transition: transform 0.65s ease;
+    }
+
+    .gallery-slideshow-slide {
+      position: relative;
+      flex: 0 0 100%;
+      min-width: 0;
+    }
+
+    .gallery-slideshow-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gallery-slideshow-track { transition: none; }
     }
 
     /* ─── Placeholder (when no real image loaded) ─── */
@@ -290,14 +331,12 @@
     }
 
     /* ─── Responsive ─── */
-    @media (max-width: 900px) {
+    @media (max-width: 1100px) {
       .gallery-track {
         grid-template-columns: 1fr 1fr;
         gap: 18px;
       }
-      .gallery-panel:last-child {
-        grid-column: 1 / -1;
-      }
+      .gallery-panel:nth-child(n) { grid-column: span 1; }
       .gallery-double-slots {
         flex-direction: row;
       }
@@ -309,9 +348,9 @@
 
     @media (max-width: 560px) {
       .gallery-track { grid-template-columns: 1fr; }
-      .gallery-panel:last-child { grid-column: auto; }
+      .gallery-panel:nth-child(n) { grid-column: span 1; }
       .gallery-double-slots { flex-direction: column; }
-      .gallery-double-slot { aspect-ratio: 16/7; }
+      .gallery-double-slot { aspect-ratio: 16/9; }
     }
   </style>
 </head>
@@ -401,7 +440,7 @@
         <div class="pricing-card-top">
           <div class="pricing-mode-icon">💻</div>
           <div class="pricing-mode">Online Classes</div>
-          <div class="pricing-amount"><span class="pricing-currency">₹</span>4,999</div>
+          <div class="pricing-amount"><span class="pricing-currency">₹</span>3,999</div>
           <p class="pricing-desc">Learn from anywhere with personal attention and comprehensive training. Full curriculum access with live sessions.</p>
         </div>
         <ul class="pricing-perks">
@@ -418,7 +457,7 @@
         <div class="pricing-card-top">
           <div class="pricing-mode-icon">🏫</div>
           <div class="pricing-mode">Offline Classes</div>
-          <div class="pricing-amount"><span class="pricing-currency">₹</span>6,499</div>
+          <div class="pricing-amount"><span class="pricing-currency">₹</span>4,499</div>
           <p class="pricing-desc">Hands-on learning with direct instructor guidance. Work on industry-grade machines with real project briefs.</p>
         </div>
         <ul class="pricing-perks">
@@ -560,12 +599,36 @@
   </div>
 </section>
 
-<!-- ════════════════════════════════════════════════
-     GALLERY — Batches & Workshops
-════════════════════════════════════════════════ -->
+<!-- ─── Image Showcase ─── -->
+<section class="showcase-section" aria-labelledby="showcase-title">
+  <div class="container">
+    <div class="showcase-heading fade-up">
+      <div>
+        <span class="section-label">Inside VS Design</span>
+        <h2 class="section-title" id="showcase-title">Built Around Practice</h2>
+      </div>
+      <p class="section-desc">A moving look at the people, projects, and hands-on learning behind every VS Design success story.</p>
+    </div>
+
+    <div class="showcase-slider fade-up" data-delay="120" tabindex="0" aria-roledescription="carousel" aria-label="VS Design image showcase">
+      <div class="showcase-viewport">
+        <div class="showcase-slides" aria-live="polite"></div>
+      </div>
+      <div class="showcase-controls">
+        <div class="showcase-counter" aria-live="polite"><span class="showcase-current">01</span><span aria-hidden="true"> / </span><span class="showcase-total">18</span></div>
+        <div class="showcase-dots" role="tablist" aria-label="Choose showcase image"></div>
+        <div class="showcase-arrows">
+          <button class="showcase-arrow showcase-prev" type="button" aria-label="Previous image">←</button>
+          <button class="showcase-arrow showcase-next" type="button" aria-label="Next image">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Batches & Workshops ─── -->
 <section class="gallery-section">
   <div class="container">
-
     <div class="gallery-header fade-up">
       <span class="section-label">Our Community</span>
       <h2 class="section-title">Batches &amp; Workshops</h2>
@@ -575,8 +638,6 @@
     </div>
 
     <div class="gallery-track">
-
-      <!-- ── BATCH 1 ── -->
       <div class="gallery-panel fade-up" data-delay="0">
         <div class="gallery-panel-head">
           <div class="gallery-panel-icon">🎓</div>
@@ -587,8 +648,7 @@
           <span class="gallery-panel-count">1 Photo</span>
         </div>
         <div class="gallery-single-slot">
-          <img src="batch1.jpeg" alt="VS Design Batch 1 Students"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img src="batch1.jpeg" alt="VS Design Batch 1 Students" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="img-placeholder">
             <div class="img-placeholder-icon">📸</div>
             <div class="img-placeholder-text">Batch 1 Photo</div>
@@ -600,7 +660,6 @@
         </div>
       </div>
 
-      <!-- ── BATCH 2 ── -->
       <div class="gallery-panel fade-up" data-delay="120">
         <div class="gallery-panel-head">
           <div class="gallery-panel-icon">🎓</div>
@@ -611,8 +670,7 @@
           <span class="gallery-panel-count">1 Photo</span>
         </div>
         <div class="gallery-single-slot">
-          <img src="batch2.jpeg" alt="VS Design Batch 2 Students"
-               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <img src="batch2.jpeg" alt="VS Design Batch 2 Students" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
           <div class="img-placeholder">
             <div class="img-placeholder-icon">📸</div>
             <div class="img-placeholder-text">Batch 2 Photo</div>
@@ -624,7 +682,67 @@
         </div>
       </div>
 
-      <!-- ── WORKSHOPS ── -->
+      <div class="gallery-panel fade-up" data-delay="240">
+        <div class="gallery-panel-head">
+          <div class="gallery-panel-icon">🎓</div>
+          <div class="gallery-panel-meta">
+            <div class="gallery-panel-title">Batch 3</div>
+            <div class="gallery-panel-sub">New skills · 2025</div>
+          </div>
+          <span class="gallery-panel-count">1 Photo</span>
+        </div>
+        <div class="gallery-single-slot">
+          <img src="assets/batch3/image.jpg" alt="VS Design Batch 3 Students" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="img-placeholder">
+            <div class="img-placeholder-icon">📸</div>
+            <div class="img-placeholder-text">Batch 3 Photo</div>
+          </div>
+        </div>
+        <div class="gallery-panel-caption">
+          <strong>Our Growing Community</strong>
+          Another group of ambitious engineers building practical skills for the mechanical design industry.
+        </div>
+      </div>
+        <div class="gallery-panel fade-up" data-delay="360">
+        <div class="gallery-panel-head">
+          <div class="gallery-panel-icon">🎓</div>
+          <div class="gallery-panel-meta">
+            <div class="gallery-panel-title">Batch 4</div>
+            <div class="gallery-panel-sub">Latest cohort · 2025</div>
+          </div>
+          <span class="gallery-panel-count">2 Photos</span>
+        </div>
+        <div class="gallery-slideshow" aria-label="Batch 4 photo slideshow">
+          <div class="gallery-slideshow-track">
+          <div class="gallery-slideshow-slide">
+            <img src="assets/batch4/11.jpeg" alt="VS Design Batch 4 students, photo 1" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="img-placeholder">
+              <div class="img-placeholder-icon">📸</div>
+              <div class="img-placeholder-text">Batch 4 Photo 1</div>
+            </div>
+          </div>
+          <div class="gallery-slideshow-slide">
+            <img src="assets/batch4/12.jpeg" alt="VS Design Batch 4 students, photo 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="img-placeholder">
+              <div class="img-placeholder-icon">📸</div>
+              <div class="img-placeholder-text">Batch 4 Photo 2</div>
+            </div>
+          </div>
+           <div class="gallery-slideshow-slide">
+            <img src="assets/batch4/13.jpeg" alt="VS Design Batch 4 students, photo 2" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+            <div class="img-placeholder">
+              <div class="img-placeholder-icon">📸</div>
+              <div class="img-placeholder-text">Batch 4 Photo 2</div>
+            </div>
+          </div>
+          </div>
+        </div>
+        <div class="gallery-panel-caption">
+          <strong>Our Latest Cohort</strong>
+          The newest VS Design batch building practical skills for the mechanical design industry.
+        </div>
+      </div>
+
       <div class="gallery-panel fade-up" data-delay="240">
         <div class="gallery-panel-head">
           <div class="gallery-panel-icon">🛠️</div>
@@ -634,22 +752,22 @@
           </div>
           <span class="gallery-panel-count">2 Photos</span>
         </div>
-        <div class="gallery-double-slots">
-          <div class="gallery-double-slot">
-            <img src="workshopimg.jpeg" alt="VS Design Workshop Session 1"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+        <div class="gallery-slideshow" aria-label="Workshop photo slideshow">
+          <div class="gallery-slideshow-track">
+          <div class="gallery-slideshow-slide">
+            <img src="workshopimg.jpeg" alt="VS Design Workshop Session 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             <div class="img-placeholder">
               <div class="img-placeholder-icon">🔧</div>
               <div class="img-placeholder-text">Workshop Photo 1</div>
             </div>
           </div>
-          <div class="gallery-double-slot">
-            <img src="workshopimg2.jpeg" alt="VS Design Workshop Session 2"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
+          <div class="gallery-slideshow-slide">
+            <img src="workshopimg2.jpeg" alt="VS Design Workshop Session 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'">
             <div class="img-placeholder">
               <div class="img-placeholder-icon">🔧</div>
               <div class="img-placeholder-text">Workshop Photo 2</div>
             </div>
+          </div>
           </div>
         </div>
         <div class="gallery-panel-caption">
@@ -658,10 +776,10 @@
         </div>
       </div>
 
-    </div><!-- /gallery-track -->
-
-  </div><!-- /container -->
-</section><!-- /gallery-section -->
+    
+    </div>
+  </div>
+</section>
 
 <!-- ─── Footer ─── -->
 <footer>
